@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { DeliveryDTO, DriverDTO } from "../../modules/delivery/types/common";
 import { RestaurantDTO } from "../../modules/restaurant/types/common";
 
-const BACKEND_URL = "https://metabolic-boats-grab.medusajs.app";
+const BACKEND_URL = window.location.protocol + "//" + window.location.host;
 
 export const useDrivers = (
   query?: Record<string, any>
