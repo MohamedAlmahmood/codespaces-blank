@@ -11,7 +11,7 @@ import {
   updateStoresWorkflow,
 } from "@medusajs/core-flows";
 import { Logger } from "@medusajs/medusa";
-import { RemoteLink } from "@medusajs/modules-sdk";
+import { Link } from "@medusajs/modules-sdk";
 import { ExecArgs } from "@medusajs/types";
 import {
   ContainerRegistrationKeys,
@@ -30,7 +30,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:3000";
 
 export default async function seedDemoData({ container }: ExecArgs) {
   const logger: Logger = container.resolve(ContainerRegistrationKeys.LOGGER);
-  const remoteLink: RemoteLink = container.resolve(
+  const Link: Link = container.resolve(
     ContainerRegistrationKeys.REMOTE_LINK
   );
   const fulfillmentModuleService = container.resolve(
@@ -185,7 +185,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   const fulfillmentProviderId = fulfillmentProvider.id;
 
-  await remoteLink.create([
+  await Link.create([
     {
       [Modules.STOCK_LOCATION]: {
         stock_location_id: stockLocation.id,
